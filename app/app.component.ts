@@ -11,9 +11,26 @@ interface Passenger {
   styleUrls: ['app.component.scss'],
   template: `
     <div class="app">
-      <h3>Airline Passengers</h3>
+      <h3>Airline Passengers without ngClass</h3>
       <ul>
         <li *ngFor="let passenger of passengers; let i = index;">
+          <span 
+            class="status"
+            [class.checked-in]="passenger.checkedIn"
+            ></span>
+          {{i}}: {{ passenger.fullname }}
+        </li>
+      </ul>
+      <h3>Airline Passengers with ngClass</h3>
+      <ul>
+        <li *ngFor="let passenger of passengers; let i = index;">
+          <span 
+            class="status"
+            [ngClass]="{
+              'checked-in': passenger.checkedIn,
+              'checked-out': !passenger.checkedIn
+            }"
+            ></span>
           {{i}}: {{ passenger.fullname }}
         </li>
       </ul>
@@ -28,7 +45,7 @@ export class AppComponent {
   }, {
     id: 2,
     fullname: 'Brian',
-    checkedIn: false
+    checkedIn: true
   }, {
     id: 3,
     fullname: 'Angelina',
