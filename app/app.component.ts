@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 interface Passenger {
   id: number,
   fullname: string,
-  checkedIn: boolean
+  checkedIn: boolean,
+  checkInDate: number | null
 }
 
 @Component({
@@ -11,26 +12,16 @@ interface Passenger {
   styleUrls: ['app.component.scss'],
   template: `
     <div class="app">
-      <h3>Airline Passengers with Style Binding</h3>
+      <h3>Airline Passengers without ngClass</h3>
       <ul>
         <li *ngFor="let passenger of passengers; let i = index;">
-          <span 
-            class="status"
-            [style.backgroundColor]="passenger.checkedIn ? '#2ecc71' : '#c0392b'"
-            ></span>
+          <span class="status" [class.checked-in]="passenger.checkedIn"></span>
           {{i}}: {{ passenger.fullname }}
-        </li>
-      </ul>
-      <h3>Airline Passengers with ngStyle</h3>
-      <ul>
-        <li *ngFor="let passenger of passengers; let i = index;">
-          <span 
-            class="status"
-            [ngStyle]="{
-              'backgroundColor': (passenger.checkedIn ? '#2ecc71' : '#c0392b')
-            }"
-            ></span>
-          {{i}}: {{ passenger.fullname }}
+          <p> {{ passenger | json }} </p>
+          <div class="date">
+            Check In Date: 
+            {{ passenger.checkInDate ? (passenger.checkInDate | date: 'yMMMd' | uppercase) : 'Not checked in' }}
+          </div>
         </li>
       </ul>
     </div>
@@ -40,22 +31,27 @@ export class AppComponent {
   passengers: Passenger[] = [{
     id: 1,
     fullname: 'Stephen',
-    checkedIn: true
+    checkedIn: false,
+    checkInDate: null
   }, {
     id: 2,
     fullname: 'Brian',
-    checkedIn: true
+    checkedIn: true,
+    checkInDate: 1490742000000
   }, {
     id: 3,
     fullname: 'Angelina',
-    checkedIn: true
+    checkedIn: true,
+    checkInDate: 1490742000000
   }, {
     id: 4,
     fullname: 'Jose',
-    checkedIn: false
+    checkedIn: false,
+    checkInDate: null
   }, {
     id: 5,
     fullname: 'Cody',
-    checkedIn: false
+    checkedIn: false,
+    checkInDate: null
   }]
 }
