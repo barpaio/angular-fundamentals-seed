@@ -11,24 +11,23 @@ interface Passenger {
   styleUrls: ['app.component.scss'],
   template: `
     <div class="app">
-      <h3>Airline Passengers without ngClass</h3>
+      <h3>Airline Passengers with Style Binding</h3>
       <ul>
         <li *ngFor="let passenger of passengers; let i = index;">
           <span 
             class="status"
-            [class.checked-in]="passenger.checkedIn"
+            [style.backgroundColor]="passenger.checkedIn ? '#2ecc71' : '#c0392b'"
             ></span>
           {{i}}: {{ passenger.fullname }}
         </li>
       </ul>
-      <h3>Airline Passengers with ngClass</h3>
+      <h3>Airline Passengers with ngStyle</h3>
       <ul>
         <li *ngFor="let passenger of passengers; let i = index;">
           <span 
             class="status"
-            [ngClass]="{
-              'checked-in': passenger.checkedIn,
-              'checked-out': !passenger.checkedIn
+            [ngStyle]="{
+              'backgroundColor': (passenger.checkedIn ? '#2ecc71' : '#c0392b')
             }"
             ></span>
           {{i}}: {{ passenger.fullname }}
