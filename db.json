@@ -5,54 +5,35 @@
       "fullname": "Todd Motto",
       "checkedIn": false,
       "checkInDate": null,
-      "children": null
+      "baggage": ""
     },
     {
       "id": 2,
       "fullname": "Brian",
       "checkedIn": true,
       "checkInDate": 1490742000000,
-      "children": [
-        {
-          "name": "Deeclan",
-          "age": 1
-        }
-      ]
+      "baggage": ""
     },
     {
       "id": 3,
       "fullname": "Angelina",
       "checkedIn": true,
       "checkInDate": 1490742000000,
-      "children": [
-        {
-          "name": "Declan",
-          "age": 1
-        }
-      ]
+      "baggage": ""
     },
     {
       "id": 4,
       "fullname": "Jose",
       "checkedIn": false,
       "checkInDate": null,
-      "children": [
-        {
-          "name": "Sebastian",
-          "age": 3
-        },
-        {
-          "name": "Camilla",
-          "age": 1
-        }
-      ]
+      "baggage": ""
     },
     {
       "id": 5,
       "fullname": "Cody",
       "checkedIn": false,
       "checkInDate": null,
-      "children": null
+      "baggage": ""
     }
   ]
 }
