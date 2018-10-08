@@ -24,7 +24,7 @@ const routes: Routes = [
     // angular modules
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { useHash: true }),
     // custom modules
     PassengerDashboardModule
   ],
